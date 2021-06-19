@@ -14,7 +14,8 @@ def main():
     return map(lambda phrase: parser.detectEmotion(phrase), phrases)
 
   POLLING_INTERVAL_SECONDS = 0.05
-  watchFile = file_monitor.FileMonitor('./test-file.log', POLLING_INTERVAL_SECONDS)
+
+  watchFile = file_monitor.FileMonitor('test-file.log', POLLING_INTERVAL_SECONDS)
   watchFile.onChange(processFileChange)
   watchFile.start()
 

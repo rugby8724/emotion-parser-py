@@ -22,12 +22,15 @@ class Repository:
       return
 
     def simulateSuccess():
-      self._timers.pop(0)
-      print('done')
+      run_time = self._timers.pop(0)
+      print(f'done in {run_time}')
 
     t = Timer(delay, simulateSuccess)
+    tic = time.perf_counter()
     t.start()
     self._timers.append(t)
+    toc = time.perf_counter()
+    print(f'ran in {toc - tic:0.4f} seconds')
 
 
 
@@ -40,5 +43,3 @@ class Parser:
   def detectEmotion(self, phrase):
     time.sleep(1.0)
     return []
-
-
